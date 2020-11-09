@@ -23,6 +23,7 @@ Vagrant.configure("2") do |config|
         vb.name = "#{name}"
         vb.memory = "#{conf["memory"]}"
         vb.cpus = "#{conf["cpus"]}"
+        vb.customize ["modifyvm", :id, "--groups", "/MongoDB-Lab"]
       end
       
       srv.vm.provision "shell", inline: <<-SHELL
